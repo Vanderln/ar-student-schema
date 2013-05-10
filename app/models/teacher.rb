@@ -4,12 +4,11 @@ require 'date'
 
 
 # implement your Student model here
-class Student < ActiveRecord::Base
-  has_many :teachers, :through => :student_teachers
+class Teacher < ActiveRecord::Base
   validate :email_format 
   validates :email, :uniqueness => true
-  validate :age_restrict
-  validates :phone, format: { with: /.{9,}/ }
+ 
+  has_many :students, :through => :student_teachers
   
   
   def name
@@ -32,8 +31,6 @@ class Student < ActiveRecord::Base
     errors.add(:email, "Wrong email format") if check != 0
   end
 
-  def age_restrict
-    errors.add(:age_restrict, "Not eligible to be a student, too young") if age < 5
-  end
+ 
 
 end
