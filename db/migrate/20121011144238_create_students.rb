@@ -7,8 +7,8 @@ class CreateStudents < ActiveRecord::Migration
 
     # HINT: checkout ActiveRecord::Migration.create_table
     create_table :students do |t|
-      t.string :first_name
-      t.string :last_name
+      # :name => '#{first_name} #last_name'
+      t.string :name
       t.string :gender
       t.string :email
       t.string :phone

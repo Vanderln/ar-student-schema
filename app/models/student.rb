@@ -12,9 +12,7 @@ class Student < ActiveRecord::Base
   validates :phone, format: { with: /.{9,}/ }
   
   
-  def name
-    "#{first_name} #{last_name}"
-  end
+
 
   def age
     today = Date.today

@@ -10,6 +10,9 @@ module StudentsImporter
           field_names = data
         else
           attribute_hash = Hash[field_names.zip(data)]
+          attribute_hash['name'] = attribute_hash['first_name'] + ' ' + attribute_hash['last_name']
+          attribute_hash.delete('first_name')
+          attribute_hash.delete('last_name')
           student = Student.create!(attribute_hash)
         end
       end
