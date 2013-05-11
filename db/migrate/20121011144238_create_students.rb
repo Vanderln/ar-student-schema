@@ -12,6 +12,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :gender
       t.string :email
       t.string :phone
+      t.string :address
       
       t.date :birthday
       

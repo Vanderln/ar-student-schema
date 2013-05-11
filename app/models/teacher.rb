@@ -5,11 +5,13 @@ require 'date'
 
 # implement your Student model here
 class Teacher < ActiveRecord::Base
-  validate :email_format 
-  validates :email, :uniqueness => true
- 
+   
   has_many :students, :through => :student_teachers
   
+
+  validate :email_format 
+  validates :email, :uniqueness => true
+
   
   def name
     "#{first_name} #{last_name}"
